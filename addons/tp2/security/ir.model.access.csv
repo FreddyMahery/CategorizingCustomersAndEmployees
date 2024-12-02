@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tp2_tp2,tp2.tp2,model_client_category,base.group_user,1,1,1,1
+

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+<record id="view_client" model="ir.ui.view">
+    <field name="name">.view.form.inherit</field>
+    <field name="model">res.partner</field>
+    git<field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        
+    </field>
+</record>
+    
+</odoo>
