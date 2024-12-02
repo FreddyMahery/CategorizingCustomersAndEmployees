@@ -3,9 +3,11 @@
 <record id="view_client" model="ir.ui.view">
     <field name="name">.view.form.inherit</field>
     <field name="model">res.partner</field>
-    git<field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="inherit_id" ref="base.view_partner_form"/>
     <field name="arch" type="xml">
-        
+        <field name="vat" position="after">
+            <field name="client_category_id" />
+        </field>  
     </field>
 </record>
     

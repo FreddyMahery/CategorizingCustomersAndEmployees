@@ -5,4 +5,4 @@ class ClientCategory(models.Model):
     _description = 'Client Tier Category'
     _inherit='res.partner.category'
     name = fields.Char(string='Catégorie', required=True)
-    thresold = fields.Float(string='Seuil de chiffre d\'affaire', required=True)
+    spending = fields.Float(string='Dépense minimum', required=True)

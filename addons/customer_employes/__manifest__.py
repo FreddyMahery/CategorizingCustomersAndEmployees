@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "",
+    'name': "Customer Employes",
 
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "This is a modul for our TP2",
 
     'description': """
 Long description of module's purpose
@@ -24,7 +24,8 @@ Long description of module's purpose
     # always loaded
     'data': [
          'security/ir.model.access.csv',
-         'views/client_category_views.xml'
+         'views/client_category_views.xml',
+         'views/client_views.xml'
     #     'views/views.xml',
     #     'views/templates.xml',
      ]
