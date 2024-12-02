@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Customer Employes",
+    'name': "customer Employes",
 
     'summary': "This is a modul for our TP2",
 
@@ -19,13 +19,14 @@ Long description of module's purpose
     'installable': True,
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale','hr'],
 
     # always loaded
     'data': [
          'security/ir.model.access.csv',
          'views/client_category_views.xml',
-         'views/client_views.xml'
+         'views/client_views.xml',
+         'views/categories_employes_views.xml'
     #     'views/views.xml',
     #     'views/templates.xml',
      ]
