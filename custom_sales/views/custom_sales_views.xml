@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_custom_sales_form" model="ir.ui.view">
+        <field name="name">custom.sales.form</field>
+        <field name="model">custom.sales</field>
+        <field name="arch" type="xml">
+            <form string="Custom Sales">
+                <sheet>
+                    <group>
+                        <button name="get_all_products" type="object" string="Récupérer Produits" class="oe_highlight"/>
+                        <button name="get_all_customers" type="object" string="Récupérer Clients" class="oe_highlight"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour accéder au menu -->
+    <record id="action_custom_sales" model="ir.actions.act_window">
+        <field name="name">Custom Sales</field>
+        <field name="res_model">custom.sales</field>
+        <field name="view_mode">form</field>
+    </record>
+
+  
+</odoo>

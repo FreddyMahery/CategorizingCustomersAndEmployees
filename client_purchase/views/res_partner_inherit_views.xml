@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Utilisation de xpath pour cibler la page "internal_notes" -->
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <!-- Nouvelle page ajoutée juste après "Internal Notes" -->
+                    <page name="client_purchases" string="Achats Clients">
+                        <field name="product_purchases" widget="one2many_list">
+                            <tree>
+                                <field name="product_name" string="Produit"/>
+                                <field name="quantity" string="Quantité Totale"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+        </field>
+    </record>
+</odoo>

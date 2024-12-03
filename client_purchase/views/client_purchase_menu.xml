@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <menuitem id="menu_client_purchase_root" name="Client Purchase" sequence="10"/>
+         <menuitem id="menu_client_purchase_report" name="Clients" parent="menu_client_purchase_root" action="action_client_purchase_report" sequence="10"/>
+</odoo>

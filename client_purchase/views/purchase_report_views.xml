@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_client_purchase_report_tree" model="ir.ui.view">
+        <field name="name">client.purchase.report.tree</field>
+        <field name="model">client.purchase.report</field>
+        <field name="arch" type="xml">
+            <tree string="Rapport des Achats des Clients">
+                <field name="partner_id" string="Client"/>
+                <field name="product_name" string="Produit"/>
+                <field name="quantity" string="Quantité Totale"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_client_purchase_report" model="ir.actions.act_window">
+        <field name="name">Rapport des Achats des Clients</field>
+        <field name="res_model">client.purchase.report</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_client_purchase_report_tree"/>
+        <field name="target">current</field>
+    </record>
+
+    <record id="view_client_purchase_report_form" model="ir.ui.view">
+        <field name="name">client.purchase.report.form</field>
+        <field name="model">client.purchase.report</field>
+        <field name="arch" type="xml">
+            <form string="Rapport des achats">
+                <header>
+                    <button name="refresh_report" type="object" string="Rafraîchir" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="product_name"/>
+                        <field name="quantity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

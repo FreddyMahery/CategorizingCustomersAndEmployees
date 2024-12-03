@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_custom_sales_root" name="Sales Custom" />
+        <!-- Menu secondaire (niveau 2) -->
+        <menuitem id="menu_custom_sales_action" 
+            name="Data" 
+            parent="menu_custom_sales_root" 
+            action="action_custom_sales"/>
+</odoo>
