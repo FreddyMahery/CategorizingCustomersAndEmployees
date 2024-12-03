@@ -48,7 +48,7 @@
 <!-- MENU -->
         <menuitem
             id="client_category_root_menu"
-            name="TP2"
+            name="Customers - Employes"
             />
        <menuitem id="client_category_menu" name="Category client" parent="client_category_root_menu" />
          <menuitem

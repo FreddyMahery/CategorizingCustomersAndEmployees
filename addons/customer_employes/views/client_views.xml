@@ -7,6 +7,7 @@
     <field name="arch" type="xml">
         <field name="vat" position="after">
             <field name="client_category_id" />
+              <field name="monthly_spending" widget="monetary" options="{'currency_field': 'currency_id'}"/>
         </field>  
     </field>
 </record>

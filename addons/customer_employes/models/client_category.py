@@ -5,4 +5,4 @@ class ClientCategory(models.Model):
     _description = 'Client Tier Category'
     _inherit='res.partner.category'
     name = fields.Char(string='Catégorie', required=True)
-    spending = fields.Float(string='Dépense minimum', required=True)
+    spending = fields.Float(string='Dépense minimum (MGA)', required=True)
