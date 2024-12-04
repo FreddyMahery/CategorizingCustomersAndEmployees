@@ -1,0 +1,13 @@
+<odoo>
+    <!-- Menu principal -->
+    <menuitem id="menu_sales_kanban_root" name="Sales Kanban" sequence="10"/>
+
+    <!-- Sous-menu -->
+    <menuitem id="menu_sale_order_line"
+              name="Ventes par Client"
+              parent="menu_sales_kanban_root"
+              action="action_sale_order_line_kanban"
+              sequence="10"/>
+
+   
+</odoo>
