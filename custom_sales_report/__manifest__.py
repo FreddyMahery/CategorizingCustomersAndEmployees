@@ -7,6 +7,8 @@
     'depends': ['sale'],
     'data': [
         'views/sale_report_inherit_views.xml',
+        'views/sale_report_menu.xml',
+
     ],
     'installable': True,
     'application': True,

@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="partner_id" string="Client"/>
-                <field name="customer_purchases" string="Produits achetés" widget="text"/>
+                <field name="customer_purchases" string="Categorie de Produits achetés" widget="text"/>
                 <field name="customer_purchase_quantity" string="Quantité totale" widget="text"/>
             </tree>
         </field>
@@ -22,11 +22,5 @@
         <!-- <field name="context">{'group_by': ['partner_id']}</field>  -->
     </record>
 
-    <!-- Ajouter un menu dans le module Custom Sales -->
-    <menuitem id="menu_custom_sale_root" name="Custom sale" />
-
-    <menuitem id="menu_custom_sale_report"
-              name="Rapport des ventes"
-              parent="menu_custom_sale_root"
-              action="action_custom_sale_report"/>
+  
 </odoo>

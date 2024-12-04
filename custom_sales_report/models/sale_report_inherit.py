@@ -99,25 +99,59 @@ class CustomSaleReport(models.Model):
     #                 )
     #         else:
     #             report.customer_purchases = ""
+    # @api.depends('partner_id', 'product_id', 'product_uom_qty')
+    # def _compute_customer_purchases(self):
+    #     """Regroupe les achats des clients et affiche les produits et quantités dans des champs distincts."""
+    #     # Regrouper les achats par client et produit
+    #     customer_purchases = defaultdict(lambda: defaultdict(float))
+    #     for record in self.env['sale.report'].search([]):
+    #         if record.partner_id and record.product_id:
+    #             customer_purchases[record.partner_id][record.product_id.display_name] += record.product_uom_qty
+
+    #     # Mettre à jour les enregistrements avec des données calculées
+    #     for report in self:
+    #         if report.partner_id:
+    #             purchases = customer_purchases.get(report.partner_id, {})
+    #             # Liste des produits
+    #             report.customer_purchases = "\n".join(product_name for product_name in purchases.keys())
+    #             # Liste des quantités
+    #             report.customer_purchase_quantity = "\n".join(str(quantity) for quantity in purchases.values())
+    #         else:
+    #             report.customer_purchases = ""
+    #             report.customer_purchase_quantity = ""
+
+
     @api.depends('partner_id', 'product_id', 'product_uom_qty')
     def _compute_customer_purchases(self):
-        """Regroupe les achats des clients et affiche les produits et quantités dans des champs distincts."""
-        # Regrouper les achats par client et produit
-        customer_purchases = defaultdict(lambda: defaultdict(float))
+        """ Regroupe les achats des clients par catégorie de produit et affiche les quantités totales. """
+        # Regrouper les achats par client et par catégorie de produit
+        customer_purchases_by_category = defaultdict(lambda: defaultdict(float))
+        
         for record in self.env['sale.report'].search([]):
             if record.partner_id and record.product_id:
-                customer_purchases[record.partner_id][record.product_id.display_name] += record.product_uom_qty
+                # Récupérer la catégorie du produit
+                category = record.product_id.categ_id.name
+                # Additionner les quantités pour chaque produit dans chaque catégorie
+                customer_purchases_by_category[record.partner_id][category] += record.product_uom_qty
 
         # Mettre à jour les enregistrements avec des données calculées
         for report in self:
             if report.partner_id:
-                purchases = customer_purchases.get(report.partner_id, {})
-                # Liste des produits
-                report.customer_purchases = "\n".join(product_name for product_name in purchases.keys())
-                # Liste des quantités
-                report.customer_purchase_quantity = "\n".join(str(quantity) for quantity in purchases.values())
+                # Récupérer les achats du client pour chaque catégorie
+                purchases = customer_purchases_by_category.get(report.partner_id, {})
+                
+                # Créer une chaîne de caractères pour afficher le nom du client, catégorie et quantité totale
+                report.customer_purchases = "\n".join(
+                    f"{category}" 
+                    for category in purchases.keys()
+                )
+                
+                # Créer une chaîne de caractères pour afficher la quantité totale pour chaque catégorie
+                report.customer_purchase_quantity = "\n".join(
+                    str(quantity) 
+                    for quantity in purchases.values()
+                )
             else:
                 report.customer_purchases = ""
                 report.customer_purchase_quantity = ""
-      
 

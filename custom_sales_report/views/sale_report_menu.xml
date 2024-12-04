@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <!-- Ajouter un menu dans le module Custom Sales -->
+    <menuitem id="menu_custom_sale_root" name="Custom sale" />
+
+    <menuitem id="menu_custom_sale_report"
+              name="Rapport des ventes"
+              parent="menu_custom_sale_root"/>
+
+     <menuitem id="menu_custom_sale_brut"
+              name="Rapport des ventes"
+              parent="menu_custom_sale_report"
+              action="action_custom_sale_report"/>
+
+     <menuitem id="menu_custom_sale_ord"
+              name="liste simplifier"
+              parent="menu_custom_sale_brut"/>
+    
+
+</odoo>
