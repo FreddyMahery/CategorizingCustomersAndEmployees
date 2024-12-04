@@ -24,10 +24,11 @@ Long description of module's purpose
     # always loaded
     'data': [
          'security/ir.model.access.csv',
+        #  'views/predominant_category_menus.xml',
          'views/client_category_views.xml',
          'views/client_views.xml',
-         'views/employee_category_views.xml',
-        'views/employee_views.xml'
+         'views/predominant_category_views.xml',
+         'views/menu.xml'
     #     'views/views.xml',
     #     'views/templates.xml',
      ]

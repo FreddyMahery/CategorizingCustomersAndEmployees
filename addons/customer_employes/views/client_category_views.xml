@@ -46,16 +46,6 @@
     </field>
   </record>
 <!-- MENU -->
-        <menuitem
-            id="client_employes_category_root_menu"
-            name="Customers - Employes"
-            />
-       <menuitem id="client_category_menu" name="Category client" parent="client_employes_category_root_menu" />
-         <menuitem
-            id="client_category_submenu"
-            name="Category"
-            action="client_category_action"
-            parent="client_category_menu"
-           />
+     
       
 </odoo>
