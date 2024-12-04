@@ -34,29 +34,3 @@ class EmployeePredominantCategory(models.Model):
             else:
                 employee.predominant_category = 'Aucune catégorie'
 
-
-# from odoo import models, fields, api
-
-# class EmployeePredominantCategory(models.Model):
-#     _name = 'employee.predominant.category'  # Le nom technique du modèle
-#     _inherit = 'hr.employee'  # On hérite du modèle `hr.employee`
-
-#     predominant_category = fields.Char(string="Predominant Category", compute='_compute_predominant_category')
-
-#     @api.depends('sale_order_ids')
-#     def _compute_predominant_category(self):
-#         for employee in self:
-#             category_count = {}
-#             for order in employee.sale_order_ids:
-#                 for line in order.order_line:
-#                     product_category = line.product_id.categ_id.name
-#                     if product_category not in category_count:
-#                         category_count[product_category] = 0
-#                     category_count[product_category] += line.product_uom_qty
-
-#             # Déterminer la catégorie prédominante
-#             if category_count:
-#                 predominant_category = max(category_count, key=category_count.get)
-#                 employee.predominant_category = predominant_category
-#             else:
-#                 employee.predominant_category = 'Aucune catégorie'
