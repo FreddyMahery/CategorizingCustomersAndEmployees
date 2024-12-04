@@ -6,7 +6,9 @@
     'summary': 'Affiche les noms des clients avec leurs achats',
     'depends': ['sale'],
     'data': [
+        'security/ir.model.access.csv',
         'views/sale_report_inherit_views.xml',
+        'views/category_config_views.xml',
         'views/sale_report_menu.xml',
 
     ],
