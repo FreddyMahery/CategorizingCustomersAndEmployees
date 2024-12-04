@@ -26,7 +26,8 @@ Long description of module's purpose
          'security/ir.model.access.csv',
          'views/client_category_views.xml',
          'views/client_views.xml',
-         'views/categories_employes_views.xml'
+         'views/categories_employes_views.xml',
+         'views/employes_views.xml'
     #     'views/views.xml',
     #     'views/templates.xml',
      ]

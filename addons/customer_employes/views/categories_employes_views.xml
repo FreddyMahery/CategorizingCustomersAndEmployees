@@ -9,6 +9,8 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="min_threshold"/>
+                        <field name="max_threshold"/>
                     </group>
                 </sheet>
             </form>
@@ -22,6 +24,8 @@
         <field name="arch" type="xml">
             <tree string="Performance Categories">
                 <field name="name"/>
+                <field name="min_threshold"/>
+                <field name="max_threshold"/>
             </tree>
         </field>
     </record>
@@ -34,6 +38,6 @@
     </record>
 
 
-    <menuitem id="menu_performance_categories" name="Categories Employes"
+    <menuitem id="menu_performance_categories" name="Performance Employes"
               parent="hr.menu_hr_root" action="action_categories_employes"/>
 </odoo>
