@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ <record id="action_employee_predominant_category" model="ir.actions.act_window">
+        <field name="name">Employee Predominant Category</field>
+        <field name="res_model">hr.employee</field>  <!-- Utilisation du modèle `hr.employee` -->
+        <field name="view_mode">tree,form</field>  <!-- Mode d'affichage : Liste et Formulaire -->
+        <field name="view_id" ref="view_employee_predominant_category_tree"/>  <!-- Référence à la vue liste -->
+        <field name="context">{}</field>
+    </record>
+
+
+
+       <menuitem
+            id="client_employes_category_root_menu"
+            name="Customers - Employes"
+            />
+       <menuitem id="client_category_menu" name="Category client" sequence="1" parent="client_employes_category_root_menu" />
+         <menuitem
+            id="client_category_submenu"
+            name="Category"
+            action="client_category_action"
+            parent="client_category_menu"
+           />
+              <!-- Sous-menu pour accéder aux catégories d'employés -->
+           <menuitem id="submenu_employee_category" name="Predominant Category" parent="client_employes_category_root_menu" action="action_employee_predominant_category" sequence="10"/>
+
+</odoo>
