@@ -19,13 +19,16 @@ Long description of module's purpose
     'installable': True,
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale'],
+    'depends': ['base','sale','hr'],
 
     # always loaded
     'data': [
          'security/ir.model.access.csv',
+        #  'views/predominant_category_menus.xml',
          'views/client_category_views.xml',
-         'views/client_views.xml'
+         'views/client_views.xml',
+         'views/predominant_category_views.xml',
+         'views/menu.xml'
     #     'views/views.xml',
     #     'views/templates.xml',
      ]
