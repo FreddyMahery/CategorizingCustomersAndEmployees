@@ -1,0 +1,43 @@
+<odoo>
+
+    <!--formulaire pour ajout nouveau categories-->
+    <record id="view_categories_employes_form" model="ir.ui.view">
+        <field name="name">categories.employes.form</field>
+        <field name="model">categories.employes</field>
+        <field name="arch" type="xml">
+            <form string="Performance Category">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="min_threshold"/>
+                        <field name="max_threshold"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--liste touts categories -->
+    <record id="view_categories_employes_tree" model="ir.ui.view">
+        <field name="name">categories.employes.tree</field>
+        <field name="model">categories.employes</field>
+        <field name="arch" type="xml">
+            <tree string="Performance Categories">
+                <field name="name"/>
+                <field name="min_threshold"/>
+                <field name="max_threshold"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action-->
+    <record id="action_categories_employes" model="ir.actions.act_window">
+        <field name="name">Performance Categories</field>
+        <field name="res_model">categories.employes</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_performance_categories" name="Performance Employes"
+              parent="hr.menu_hr_root" action="action_categories_employes"/>
+</odoo>

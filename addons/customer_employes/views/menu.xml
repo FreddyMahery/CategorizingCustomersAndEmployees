@@ -23,15 +23,39 @@
         <field name="domain">[('customer_rank', '>', 0)]</field>
         <field name="context">{'default_customer_rank': 1}</field>
     </record>
+ <!-- Action pour afficher la vue PRODUCT -->
+    <record id="action_custom_sale_report" model="ir.actions.act_window">
+        <field name="name">Rapport des ventes personnalisées</field>
+        <field name="res_model">sale.report</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[]</field>
+        <!-- <field name="domain">[]</field> -->
+        <field name="context">{'group_by': ['partner_id']}</field> 
+    </record>
+    <!-- Action pour ouvrir la configuration -->
+    <record id="action_sale_category_config" model="ir.actions.act_window">
+        <field name="name">Configuration des Catégories de Vente</field>
+        <field name="res_model">sale.category.config</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+
+ <!-- Action pour la liste des employés -->
+    <record id="action_employee_performance" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field> <!-- Liste et formulaire -->
+        <field name="context">{}</field>
+    </record>
 
     <menuitem
         id="client_employes_category_root_menu"
         name="Customers - Employes"
         />
-    <menuitem id="client_category_menu" name="Category client" sequence="1" parent="client_employes_category_root_menu" />
+    <menuitem id="client_category_menu" name="CATEGORIES" sequence="1" parent="client_employes_category_root_menu" />
     <menuitem
         id="client_category_submenu"
-        name="Category"
+        name="Catégories des clients"
         action="client_category_action"
         parent="client_category_menu"
         sequence="1"
@@ -45,4 +69,24 @@
         sequence="2"
     />
     <menuitem id="submenu_employee_category" name="Predominant Category" parent="client_employes_category_root_menu" action="action_employee_predominant_category" sequence="10"/>
+
+<menuitem id="menu_custom_sale_report"
+              name="Rapport des ventes"
+              parent="client_employes_category_root_menu"
+              sequence="10"/>
+
+     <menuitem id="menu_custom_sale_brut"
+              name="Rapport des ventes"
+              parent="menu_custom_sale_report"
+              action="action_custom_sale_report"
+              sequence="20"/>
+
+     <menuitem id="menu_sale_category_config"
+              name="Configuration des Catégories"
+              parent="client_employes_category_root_menu"
+              action="action_sale_category_config"
+              sequence="10"/>
+<!-- ==================QUESTION 2============================================================== -->
+  <!-- Sous-menu pour les employés -->
+    <menuitem id="menu_employee_performance" name="All Employes" parent="client_employes_category_root_menu" action="action_employee_performance" sequence="1"/>
 </odoo>

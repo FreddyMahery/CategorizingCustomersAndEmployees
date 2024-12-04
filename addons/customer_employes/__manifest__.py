@@ -28,6 +28,7 @@ Long description of module's purpose
          'views/client_category_views.xml',
          'views/client_views.xml',
          'views/predominant_category_views.xml',
+         'views/sale_report_view.xml',
          'views/menu.xml'
     #     'views/views.xml',
     #     'views/templates.xml',

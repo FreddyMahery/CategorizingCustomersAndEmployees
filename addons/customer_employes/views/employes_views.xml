@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+      <!-- Vue Liste des employés avec Performance -->
+    <record id="view_employee_performance_tree" model="ir.ui.view">
+        <field name="name">hr.employee.performance.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/> <!-- Hérite de la vue de base -->
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="category_id" string="Performance Category"/>
+                <field name="total_managed_amount" string="Total Managed Amount"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire des employés avec Performance -->
+    <record id="view_employee_performance_form" model="ir.ui.view">
+        <field name="name">hr.employee.performance.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/> <!-- Hérite de la vue formulaire -->
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="category_id" string="Performance Category"/>
+                    <field name="total_managed_amount" string="Total Managed Amount"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

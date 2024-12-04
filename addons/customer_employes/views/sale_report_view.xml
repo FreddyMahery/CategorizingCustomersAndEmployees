@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue liste personnalisée -->
+    <record id="view_custom_sale_report_tree" model="ir.ui.view">
+        <field name="name">custom.sale.report.tree</field>
+        <field name="model">sale.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" string="Client"/>
+                <field name="customer_purchases" string="Categorie de Produits achetés" widget="text"/>
+                <field name="customer_purchase_quantity" string="Quantité totale" widget="text"/>
+                <field name="predominant_category" string="Catégorie Prédominante"/>
+            </tree>
+        </field>
+    </record>
+   <!-- Vue formulaire pour la configuration du seuil de catégorie -->
+    <record id="view_sale_category_config_form" model="ir.ui.view">
+        <field name="name">sale.category.config.form</field>
+        <field name="model">sale.category.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuration des seuils">
+                <sheet>
+                    <group>
+                        <field name="threshold_quantity" required="1" string="Seuil de Quantité"/>
+                        <field name="active" string="Actif"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sale_category_config_tree" model="ir.ui.view">
+        <field name="name">sale.category.config.tree</field>
+        <field name="model">sale.category.config</field>
+        <field name="arch" type="xml">
+            <tree string="Configurations des seuils">
+                <field name="threshold_quantity" string="Seuil"/>
+                <field name="active" string="Actif"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
