@@ -20,12 +20,10 @@
     'sequence':1,
     # any module necessary for this one to work correctly
     'depends': ['base','sale','hr'],
-    'depends': ['base','sale','hr'],
 
     # always loaded
     'data': [
          'security/ir.model.access.csv',
-        #  'views/predominant_category_menus.xml',
         #  'views/predominant_category_menus.xml',
          'views/client_category_views.xml',
          'views/categories_employes_views.xml',
