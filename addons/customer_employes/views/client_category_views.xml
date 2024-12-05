@@ -2,22 +2,40 @@
 <odoo>
 <!-- ACTION -->
      <record id="client_category_action" model="ir.actions.act_window">
-            <field name="name">Client Category Action</field>
+            <field name="name">Catégories des clients</field>
             <field name="res_model">client.category</field>
             <field name="view_mode">tree,form</field>
     </record>
 <!-- VUE RECHERCHE -->
    <record id="client_category_view_search" model="ir.ui.view">
-    <field name="name">client_category.view.search</field>
+    <field name="name">client.category.view.search</field>
     <field name="model">client.category</field>
     <field name="arch" type="xml">
       <search>
-        <field name="name" />
+        <!-- Filtres -->
+        <field name="name"/>
+        <field name="spending"/>
         
+        <!-- Filtres prédéfinis -->
+        <filter string="Dépenses élevées" 
+                name="high_spending" 
+                domain="[('spending', '>=', 100000)]"/>
+        <filter string="Dépenses moyennes" 
+                name="medium_spending" 
+                domain="[('spending', '>=', 50000), ('spending', '&lt;', 100000)]"/>
+        <filter string="Dépenses faibles" 
+                name="low_spending" 
+                domain="[('spending', '&lt;', 50000)]"/>
+        
+        <!-- Groupements -->
+        <group expand="0" string="Grouper par">
+            <filter string="Par seuil de dépense" 
+                    name="group_by_spending" 
+                    context="{'group_by': 'spending'}"/>
+        </group>
       </search>
-    </field>
-   </record>
-
+    </field>  
+   </record> 
    <!-- VUE FORM -->
   <record id="client_category_view_form" model="ir.ui.view">
     <field name="name">client_category.view.form</field>
@@ -39,9 +57,9 @@
     <field name="name">client_category.view.tree</field>
     <field name="model">client.category</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree default_order="spending desc">
           <field name="name" />
-          <field name="spending" />
+          <field name="spending" sum="Total"/>
       </tree>
     </field>
   </record>

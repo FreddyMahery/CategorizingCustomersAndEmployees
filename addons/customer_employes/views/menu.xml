@@ -41,18 +41,18 @@
     </record>
 
  <!-- Action pour la liste des employés -->
-    <record id="action_employee_performance" model="ir.actions.act_window">
+    <!-- <record id="action_employee_performance" model="ir.actions.act_window">
         <field name="name">Employees</field>
         <field name="res_model">hr.employee</field>
-        <field name="view_mode">tree,form</field> <!-- Liste et formulaire -->
+        <field name="view_mode">tree,form</field> 
         <field name="context">{}</field>
-    </record>
+    </record> -->
 
     <menuitem
         id="client_employes_category_root_menu"
         name="Customers - Employes"
         />
-    <menuitem id="client_category_menu" name="CATEGORIES" sequence="1" parent="client_employes_category_root_menu" />
+    <menuitem id="client_category_menu" name="Catégories" sequence="1" parent="client_employes_category_root_menu" />
     <menuitem
         id="client_category_submenu"
         name="Catégories des clients"
@@ -63,11 +63,17 @@
     <!-- Nouveau sous-menu pour la liste des clients -->
     <menuitem
         id="client_list_submenu"
-        name="Clients"
+        name="Les clients"
         action="action_client_list"
         parent="client_category_menu"
         sequence="2"
     />
+    <menuitem
+        id="employe_category_submenu"
+        name="Categories employes"
+        action="action_categories_employes"
+        parent="client_category_menu"
+        sequence="10"/>
     <menuitem id="submenu_employee_category" name="Predominant Category" parent="client_employes_category_root_menu" action="action_employee_predominant_category" sequence="10"/>
 
 <menuitem id="menu_custom_sale_report"
@@ -83,10 +89,10 @@
 
      <menuitem id="menu_sale_category_config"
               name="Configuration des Catégories"
-              parent="client_employes_category_root_menu"
+              parent="menu_custom_sale_report"
               action="action_sale_category_config"
-              sequence="10"/>
+              sequence="30"/>
 <!-- ==================QUESTION 2============================================================== -->
   <!-- Sous-menu pour les employés -->
-    <menuitem id="menu_employee_performance" name="All Employes" parent="client_employes_category_root_menu" action="action_employee_performance" sequence="1"/>
+    <menuitem id="menu_employee_performance" name="Tous les employés" parent="client_employes_category_root_menu" action="action_employee_performance" sequence="1"/>
 </odoo>

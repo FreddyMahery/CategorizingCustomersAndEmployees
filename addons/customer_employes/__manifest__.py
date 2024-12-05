@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Customer Employes",
+    'name': "Clients - Employés",
 
-    'summary': "This is a modul for our TP2",
+    'summary': "Une module qui permet de catégoriser les clients et employés",
 
     'description': """
-Long description of module's purpose
+    Le but de ce module est de pouvoir catégoriser les clients en fonction de leurs dépenses mensuelles et les employés en fonction de leur performance
     """,
-
+    'author':"Groupe 2",
     'license': 'OPL-1',
 
     # Categories can be used to filter modules in modules listing
@@ -17,7 +17,7 @@ Long description of module's purpose
     'version': '0.1',
     'application': True,
     'installable': True,
-
+    'sequence':1,
     # any module necessary for this one to work correctly
     'depends': ['base','sale','hr'],
 
@@ -26,6 +26,8 @@ Long description of module's purpose
          'security/ir.model.access.csv',
         #  'views/predominant_category_menus.xml',
          'views/client_category_views.xml',
+         'views/categories_employes_views.xml',
+         'views/employes_views.xml',
          'views/client_views.xml',
          'views/predominant_category_views.xml',
          'views/sale_report_view.xml',

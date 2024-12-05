@@ -5,3 +5,6 @@ from . import client
 from . import predominant_category
 from . import sale_category_config
 from . import sale_report_inherit
+from . import categories_employes
+from . import employes
+from . import saleOrder

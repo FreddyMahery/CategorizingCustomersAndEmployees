@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_customers_employes_customers_employes,customers_employes.customers_employes,model_client_category,base.group_user,1,1,1,1
+access_categories_employes,categories.employes,model_categories_employes,base.group_user,1,1,1,1
+access_sale_category_config,access_sale_category_config,model_sale_category_config,base.group_user,1,1,1,1

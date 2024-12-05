@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-      <!-- Vue Liste des employés avec Performance -->
+    <!-- Vue Liste des employés avec Performance -->
     <record id="view_employee_performance_tree" model="ir.ui.view">
         <field name="name">hr.employee.performance.tree</field>
         <field name="model">hr.employee</field>
@@ -20,7 +18,7 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/> <!-- Hérite de la vue formulaire -->
         <field name="arch" type="xml">
-            <xpath expr="//form//sheet" position="inside">
+            <xpath expr="//form/sheet" position="inside">
                 <group>
                     <field name="category_id" string="Performance Category"/>
                     <field name="total_managed_amount" string="Total Managed Amount"/>
@@ -29,4 +27,49 @@
         </field>
     </record>
 
+    <!-- Action pour la liste des employés -->
+    <record id="action_employee_performance" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field> <!-- Liste et formulaire -->
+        <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_employee_performance_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_employee_performance_form')})]"/>
+        <field name="context">{}</field>
+    </record>
+    
+
+    <!-- Favori pour afficher le Top 5 des employés -->
+     <record id="hr_employee_filter_top_5" model="ir.filters">
+        <field name="name">Top 5 Employees</field>
+        <field name="model_id">hr.employee</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_top_5': 1}</field>
+    </record>
+
+
+    <!-- Action spécifique pour le Top 5 des employés -->
+    <record id="action_top_5_employees" model="ir.actions.act_window">
+        <field name="name">Top 5 Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <!--field name="domain">[('total_managed_amount', '!=', 0)]</field-->
+        <field name="context">{'search_default_hr_employee_favorite_top_5': 1}</field>
+    </record>
+
+    <!-- Menu pour accéder au Top 5 Performers dans Contacts -->
+    <!-- <menuitem id="menu_favorite_top_5_employees" name="Top 5 Performers" 
+              parent="contacts.menu_contacts" action="action_top_5_employees" sequence="10"/> -->
+
+    <!-- Menu principal pour la gestion des employés -->
+    <!-- <menuitem id="menu_employee_performance_root" name="Employee Performance Management" 
+              parent="hr.menu_hr_root" sequence="10"/> -->
+
+    <!-- Sous-menu pour afficher tous les employés -->
+    <!-- <menuitem id="menu_employee_performance" name="Employees Performances" 
+              parent="menu_employee_performance_root" action="action_employee_performance" sequence="1"/> -->
+
+    <!-- Sous-menu pour les catégories des employés -->
+    <!--menuitem id="menu_performance_categories" name="Employee Categories" 
+              parent="menu_employee_performance_root" action="action_categories_employes" sequence="2"/-->
 </odoo>

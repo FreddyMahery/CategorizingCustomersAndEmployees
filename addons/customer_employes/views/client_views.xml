@@ -19,6 +19,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="monthly_spending" />
                 <field name="client_category_id"/>
             </tree>
         </field>

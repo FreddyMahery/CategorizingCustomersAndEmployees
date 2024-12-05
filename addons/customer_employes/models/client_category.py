@@ -11,3 +11,10 @@ class ClientCategory(models.Model):
     @api.model
     def _get_default_currency(self):
         return self.env.ref('base.MGA').id
+
+    def write(self, vals):
+        res = super().write(vals)
+        if 'spending' in vals:
+            # Force le recalcul de la catégorie pour tous les clients
+            self.env['res.partner'].search([])._compute_category()
+        return res

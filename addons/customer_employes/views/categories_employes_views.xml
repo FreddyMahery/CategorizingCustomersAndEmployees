@@ -36,8 +36,8 @@
         <field name="res_model">categories.employes</field>
         <field name="view_mode">tree,form</field>
     </record>
-
+<!-- 
 
     <menuitem id="menu_performance_categories" name="Performance Employes"
-              parent="hr.menu_hr_root" action="action_categories_employes"/>
+              parent="hr.menu_hr_root" action="action_categories_employes"/> -->
 </odoo>

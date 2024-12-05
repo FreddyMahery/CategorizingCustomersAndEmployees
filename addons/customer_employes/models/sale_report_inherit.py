@@ -34,24 +34,19 @@ class CustomSaleReport(models.Model):
         processed_clients = set()  # Pour garder une trace des clients déjà affichés
         for report in self:
             if report.partner_id:
-                if report.partner_id in processed_clients:
-                    # Si le client a déjà été traité, supprimer les données pour cet enregistrement
-                    report.customer_purchases = ""
-                    report.customer_purchase_quantity = ""
-                else:
-                    # Ajouter le client aux clients déjà affichés
-                    processed_clients.add(report.partner_id)
+                # Ajouter le client aux clients déjà affichés
+                processed_clients.add(report.partner_id)
 
-                    # Récupérer les achats regroupés pour ce client
-                    purchases = grouped_purchases.get(report.partner_id, {})
+                # Récupérer les achats regroupés pour ce client
+                purchases = grouped_purchases.get(report.partner_id, {})
 
-                    # Formater les catégories et quantités pour l'affichage
-                    report.customer_purchases = "\n".join(
-                        f"{category}" for category in purchases.keys()
-                    )
-                    report.customer_purchase_quantity = "\n".join(
-                        str(quantity) for quantity in purchases.values()
-                    )
+                # Formater les catégories et quantités pour l'affichage
+                report.customer_purchases = "\n".join(
+                    f"{category}" for category in purchases.keys()
+                )
+                report.customer_purchase_quantity = "\n".join(
+                    str(quantity) for quantity in purchases.values()
+                )
             else:
                 # Si aucun client associé, vider les champs
                 report.customer_purchases = ""
